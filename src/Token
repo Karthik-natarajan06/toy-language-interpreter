@@ -1,0 +1,10 @@
+class Token{
+    TokenType type; 
+    String lexeme;//lexeme means plain english word
+
+    Token(ToikenType type, String lexeme)
+    {
+        this.type = type;
+        this.lexeme = lexeme;
+    }
+}

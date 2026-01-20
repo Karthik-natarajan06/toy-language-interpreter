@@ -1,0 +1,100 @@
+class Lexer{
+    private final String source;
+    private int position - 0;
+
+    Lexer(String source){
+        this.source = source;
+    }
+
+    public List<Token> tokenize() 
+    {
+        List<Token> tokens = new ArrayList<>();
+
+        while(!isAtEnd())
+        {
+            char c = peek();
+
+            if (Character.isWhiteSpace(c))
+            {
+                advance();//skip whitespace and moves pointer forward
+            }
+            else if (Character.isDigit(c))
+            {
+                tokens.add(readNumber());
+            }
+            else if (Character.isLetter(c))
+            {
+                tokens.add(readIdentifier());
+            }
+            else
+            {
+                tokens.add(readSymbol());
+            }
+        }
+
+        tokens.add(new Token(TokenType.EOF, ""));
+        return tokens;
+    }
+
+    private Token readNumber()
+    {
+        int start = position;
+        while (!isAtEnd() && Character.isLetterOrDigit(peek()))
+        {
+            advance()
+        }
+        return new Token(TokenType.Number, source.substring(start,position));
+    }
+
+    private Token readIdentifier()
+    {
+        int start = position;
+        while (!isAtEnd() && Character.isLetterOrDigit(peek()))
+        {
+            advance();
+        }
+        String text = source.substring(start, position);
+
+        if (text.equals("print"))
+        {
+            return new Token(TokenType.PRINT, text);
+        }
+        return new Token(TokenType.IDENTIFIER, text);
+    }
+
+    private Token readSymbol()
+    {
+        char c = advance();
+
+        switch(c)
+        {
+            case '+': 
+                return new Token(TokenType.PLUS, "+");
+            case '-': 
+                return new Token(TokenType.MINUS, "-");
+            case '*': 
+                return new Token(TokenType.STAR, "*");
+            case '/': 
+                return new Token(TokenType.SLASH, "/");
+            case '=': 
+                return new Token(TokenType.EQUAL, "=");
+            default:
+                throw new RuntimeException("Unexpected character: " + c);
+        }
+    }
+
+    private char peek()
+    {
+        return source.charAt(position);
+    }
+
+    private char advance()
+    {
+        return source.charAt(position++);
+    }
+
+    private boolean isAtEnd()
+    {
+        return psoition>=source.length();
+    }
+}
