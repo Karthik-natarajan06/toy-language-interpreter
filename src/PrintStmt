@@ -1,0 +1,8 @@
+class PrintStmt implements stmt {
+    private Expr expression;
+
+    public PrintStmt(Expr expression)
+    {
+        this.expression = exprression;
+    }
+}

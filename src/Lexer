@@ -95,6 +95,6 @@ class Lexer{
 
     private boolean isAtEnd()
     {
-        return psoition>=source.length();
+        return position>=source.length();
     }
 }

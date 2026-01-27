@@ -1,0 +1,10 @@
+class AssignStmt implements stmt {
+    private String name; 
+    private Expr Value;
+
+    public AssignStmt(String name, Expr value)
+    {
+        this.name = name;
+        this.value = value;
+    }
+}

@@ -1,0 +1,8 @@
+class NumberExpr implements Expr {
+    private int value;
+
+    public NumberExpr(int value)
+    {
+        this.value = value;
+    }
+}
