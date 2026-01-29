@@ -1,4 +1,4 @@
-class Token{
+public class Token{
     TokenType type; 
     String lexeme;//lexeme means plain english word
 

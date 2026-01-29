@@ -1,5 +1,5 @@
-class NumberExpr implements Expr {
-    private int value;
+public class NumberExpr implements Expr {
+    public int value;
 
     public NumberExpr(int value)
     {

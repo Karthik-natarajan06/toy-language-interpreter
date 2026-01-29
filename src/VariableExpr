@@ -1,8 +1,0 @@
-class VariableExpr implements Expr {
-    private int name;
-
-    public VariableExpr(int name)
-    {
-        this.name = name;
-    }
-}

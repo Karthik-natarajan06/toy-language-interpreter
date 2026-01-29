@@ -1,6 +1,8 @@
-class Lexer{
+import java.util.*;
+
+public class Lexer{
     private final String source;
-    private int position - 0;
+    private int position = 0;
 
     Lexer(String source){
         this.source = source;
@@ -14,7 +16,7 @@ class Lexer{
         {
             char c = peek();
 
-            if (Character.isWhiteSpace(c))
+            if (Character.isWhitespace(c))
             {
                 advance();//skip whitespace and moves pointer forward
             }
@@ -39,11 +41,11 @@ class Lexer{
     private Token readNumber()
     {
         int start = position;
-        while (!isAtEnd() && Character.isLetterOrDigit(peek()))
+        while (!isAtEnd() && Character.isDigit(peek()))
         {
-            advance()
+            advance();
         }
-        return new Token(TokenType.Number, source.substring(start,position));
+        return new Token(TokenType.NUMBER, source.substring(start,position));
     }
 
     private Token readIdentifier()
@@ -68,6 +70,10 @@ class Lexer{
 
         switch(c)
         {
+            case '(':
+                return new Token(TokenType.LEFT_PAREN, "(");
+            case ')':
+                return new Token(TokenType.RIGHT_PAREN, ")");
             case '+': 
                 return new Token(TokenType.PLUS, "+");
             case '-': 

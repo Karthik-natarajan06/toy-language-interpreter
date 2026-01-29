@@ -1,6 +1,6 @@
-class AssignStmt implements stmt {
-    private String name; 
-    private Expr Value;
+public class AssignStmt implements Stmt {
+    public String name; 
+    public Expr value;
 
     public AssignStmt(String name, Expr value)
     {

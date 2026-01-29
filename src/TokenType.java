@@ -1,0 +1,3 @@
+enum TokenType {//should this be public?
+NUMBER, IDENTIFIER, PLUS, MINUS, STAR, SLASH, EQUAL, PRINT, EOF, LEFT_PAREN, RIGHT_PAREN
+}

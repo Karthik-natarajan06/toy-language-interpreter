@@ -1,7 +1,7 @@
-class BinaryExpr implements Expr {
-    private Expr left;
-    private Token operator;
-    private Expr right;
+public class BinaryExpr implements Expr {
+    public Expr left;
+    public Token operator;
+    public Expr right;
 
     public BinaryExpr(Expr left, Token operator, Expr right)
     {
