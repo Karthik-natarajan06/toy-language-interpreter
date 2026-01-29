@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Compile
-        run: javac src/Main.java
+        run: javac src/MiniInterpreter.java
